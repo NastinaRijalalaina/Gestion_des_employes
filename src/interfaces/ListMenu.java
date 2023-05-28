@@ -4,6 +4,8 @@
  */
 package interfaces;
 
+import controle.*;
+import interfaces.*;
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;

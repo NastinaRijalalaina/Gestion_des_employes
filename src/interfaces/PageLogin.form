@@ -273,7 +273,7 @@
             </DimensionLayout>
           </Layout>
         </Container>
-        <Component class="interfaces.Button" name="btnconnecter">
+        <Component class="controleur.Button" name="btnconnecter">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="66" red="33" type="rgb"/>
@@ -289,6 +289,7 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnconnecterMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnconnecterActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="disable">

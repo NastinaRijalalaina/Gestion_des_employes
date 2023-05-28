@@ -28,8 +28,7 @@ public class MenuPrincipal
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -78,30 +77,24 @@ public class MenuPrincipal
 
         btnquitter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnquitter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/fermer.png"))); // NOI18N
-        btnquitter.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        btnquitter.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnquitterMouseClicked(evt);
             }
         });
 
         btnreduire.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnreduire.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/reduire.png"))); // NOI18N
-        btnreduire.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        btnreduire.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnreduireMouseClicked(evt);
             }
         });
 
         btnagrandir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnagrandir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/agrandir.png"))); // NOI18N
-        btnagrandir.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        btnagrandir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnagrandirMouseClicked(evt);
             }
         });
@@ -240,6 +233,7 @@ public class MenuPrincipal
           {
             java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
           }
+        //</editor-fold>
         //</editor-fold>
 
         /*

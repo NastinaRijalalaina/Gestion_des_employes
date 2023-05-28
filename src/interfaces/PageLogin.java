@@ -18,11 +18,11 @@ public class PageLogin
         extends javax.swing.JFrame
   {
     private static final long serialVersionUID = 1L;
-    MenuPrincipal menu;
+    MenuPrincip menu;
     public PageLogin()
-      {
+      { 
         initComponents();  
-        menu = new MenuPrincipal();
+        menu = new MenuPrincip();
         champutilisateur.setOpaque(false);
         champmdp.setOpaque(false);
         btnconnecter.setOpaque(false);
@@ -84,8 +84,7 @@ public class PageLogin
       }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -112,7 +111,7 @@ public class PageLogin
         };
         panelnom = new javax.swing.JPanel();
         panelmdp = new javax.swing.JPanel();
-        btnconnecter = new interfaces.Button();
+        btnconnecter = new controleur.Button();
         disable = new javax.swing.JLabel();
         champmdp = new javax.swing.JPasswordField(){
             private static final long serialVersionUID = 1L; // nécessite une version sérialisée
@@ -135,10 +134,8 @@ public class PageLogin
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        addWindowListener(new java.awt.event.WindowAdapter()
-        {
-            public void windowOpened(java.awt.event.WindowEvent evt)
-            {
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
@@ -169,10 +166,8 @@ public class PageLogin
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/fermer.png"))); // NOI18N
         jLabel1.setToolTipText("");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
             }
         });
@@ -227,11 +222,14 @@ public class PageLogin
         btnconnecter.setText("Connecter");
         btnconnecter.setFocusable(false);
         btnconnecter.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnconnecter.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        btnconnecter.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnconnecterMouseClicked(evt);
+            }
+        });
+        btnconnecter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnconnecterActionPerformed(evt);
             }
         });
 
@@ -239,10 +237,8 @@ public class PageLogin
         disable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/invisible.png"))); // NOI18N
         disable.setAlignmentX(8.0F);
         disable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        disable.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        disable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 disableMouseClicked(evt);
             }
         });
@@ -383,7 +379,9 @@ public class PageLogin
     
     private void btnconnecterMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_btnconnecterMouseClicked
     {//GEN-HEADEREND:event_btnconnecterMouseClicked
-       if ( champutilisateur.getText().isEmpty())
+        Employer emp = new Employer();
+//        NumEmployer num = new NumEmployer(emp);
+        if ( champutilisateur.getText().isEmpty())
           {
           }
         if ( champmdp.getText().isEmpty())
@@ -411,7 +409,12 @@ public class PageLogin
                 Logger.getLogger(PageLogin.class.getName()).log(Level.SEVERE, null, ex);
               }
           }
+        
     }//GEN-LAST:event_btnconnecterMouseClicked
+
+    private void btnconnecterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnconnecterActionPerformed
+   
+    }//GEN-LAST:event_btnconnecterActionPerformed
      
     /**
      * @param args the command line arguments
@@ -419,19 +422,19 @@ public class PageLogin
     public static void main(String args[])
       {
           
-          MenuPrincipal pcp = new MenuPrincipal();
-//        java.awt.EventQueue.invokeLater(new Runnable()
-//          {
-//            
-//            public void run()
-//              {
-//               new FenetreDemarrage().setVisible(true);
-//              }
-//          });
+       
+        java.awt.EventQueue.invokeLater(new Runnable()
+          {
+            
+            public void run()
+              {
+               new FenetreDemarrage().setVisible(true);
+              }
+          });
       }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private interfaces.Button btnconnecter;
+    private controleur.Button btnconnecter;
     private javax.swing.JPasswordField champmdp;
     private javax.swing.JTextField champutilisateur;
     private javax.swing.JLabel disable;

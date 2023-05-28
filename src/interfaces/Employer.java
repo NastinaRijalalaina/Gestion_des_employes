@@ -4,12 +4,20 @@
  */
 package interfaces;
 
+import controleur.AjoutEmployer;
+import controleur.tableEmployer.TableActionCellEditor;
+import controleur.tableEmployer.TableActionCellRender;
+import controleur.tableEmployer.TableActionEvent;
+import javax.swing.table.DefaultTableModel;
+import traitement.employer.AffichageEmployer;
+import traitement.employer.EmployerNum;
+import traitement.employer.Employertraitement;
+
 /**
  *
  * @author Antsivaniaina
  */
-public class Employer
-        extends javax.swing.JPanel
+public class Employer extends javax.swing.JPanel
   {
 
     /**
@@ -18,6 +26,31 @@ public class Employer
     public Employer()
       {
         initComponents();
+        AffichageEmployer afficher = new AffichageEmployer();
+        afficher.affichage(tableemployer);
+         setOpaque(false);
+        TableActionEvent event = new TableActionEvent(){
+            
+            @Override
+            public void onEdit(int row){
+                System.out.println("Edit row:" +row);
+            }
+             @Override
+            public void onDelete(int row){
+                System.out.println("Delete row:" +row);
+                if(tableemployer.isEditing()){
+                    tableemployer.getCellEditor().stopCellEditing();
+                }
+                DefaultTableModel model = (DefaultTableModel)tableemployer.getModel();
+                model.removeRow(row);
+
+            }
+            
+        
+        };
+        tableemployer.getColumnModel().getColumn(3).setCellRenderer(new TableActionCellRender());       
+        tableemployer.getColumnModel().getColumn(3).setCellEditor(new TableActionCellEditor(event));
+
       }
 
     /**
@@ -29,29 +62,139 @@ public class Employer
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        ajout = new controleur.Button();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableemployer = new javax.swing.JTable();
 
-        jLabel1.setText("Employer");
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setPreferredSize(new java.awt.Dimension(986, 75));
+
+        jLabel2.setFont(new java.awt.Font("Sitka Text", 3, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("EMPLOYE");
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/fermer.png"))); // NOI18N
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(293, 293, 293)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 341, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(14, 14, 14))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        ajout.setBackground(new java.awt.Color(51, 51, 255));
+        ajout.setForeground(new java.awt.Color(255, 255, 255));
+        ajout.setText("Ajouter");
+        ajout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ajoutActionPerformed(evt);
+            }
+        });
+
+        tableemployer.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "numemployer", "nom", "adresse", "action"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableemployer.setRowHeight(40);
+        jScrollPane1.setViewportView(tableemployer);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 725, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 797, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 771, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(ajout, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(456, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(ajout, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(77, 77, 77)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void ajoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajoutActionPerformed
+        Ajouter ajt = new Ajouter();
+        ajt.setVisible(true);
+        ajt.setLocationRelativeTo(null);
+        Employertraitement employer = new Employertraitement();
+        
+        AjoutEmployer ajtemp = new AjoutEmployer(ajt,employer);
+        EmployerNum num = new EmployerNum(ajt);
+        num.recupereNum();
+        
+       
+        
+        
+    }//GEN-LAST:event_ajoutActionPerformed
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jLabel1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public controleur.Button ajout;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JTable tableemployer;
     // End of variables declaration//GEN-END:variables
   }

@@ -4,6 +4,8 @@
  */
 package interfaces;
 
+import controleur.Model_Menu;
+import controleur.EventMenuSelected;
 import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
@@ -46,7 +48,7 @@ public class Menu extends javax.swing.JPanel {
 
         PanelMoving = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        listMenu1 = new interfaces.ListMenu<>();
+        listMenu1 = new controleur.ListMenu<>();
 
         PanelMoving.setOpaque(false);
 
@@ -124,6 +126,6 @@ public class Menu extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelMoving;
     private javax.swing.JLabel jLabel1;
-    private interfaces.ListMenu<String> listMenu1;
+    private controleur.ListMenu<String> listMenu1;
     // End of variables declaration//GEN-END:variables
 }
