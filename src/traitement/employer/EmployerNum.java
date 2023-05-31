@@ -31,16 +31,21 @@ public class EmployerNum {
         String sql1 = "SELECT numemployer FROM employe ORDER BY numemployer DESC LIMIT 1";
         PreparedStatement pstmt = cn.prepareStatement(sql1);
         ResultSet rs = pstmt.executeQuery();
-        while(rs.next()){
-                 String num = rs.getString("numemployer");
-                 String resultString = num.substring(2);
+        if  (rs.next())
+              {
+                String num = rs.getString("numemployer");
+                 String resultString = num.substring(3);
                  int nume = Integer.parseInt(resultString);
                  int resultatInt = nume+1;
-                 numeroemploye = "rr" + resultatInt;          
-            }
-            System.out.println("coucou"+ numeroemploye);
-        
+                 numeroemploye = String.format("EPL%03d",resultatInt);      
+              }
+            else
+              {
+                String num = rs.getString("EPL001");
+              }
         ajout.numEmployer.setText(numeroemploye);
+        pstmt.close();
+        cn.close();
         }catch(Exception e){
         
         }

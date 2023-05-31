@@ -25,7 +25,7 @@ public class Utilisateur
         try {
             DatabaseConnection db = new DatabaseConnection();
             conn = db.getConnection();
-            stmt = conn.prepareStatement("SELECT * FROM utilisateur WHERE nom = ? AND mdp = ?");
+            stmt = conn.prepareStatement("SELECT * FROM utilisateur WHERE nomutil = ? AND mdp = ?");
             stmt.setString(1, username);
             stmt.setString(2, password);
             rs = stmt.executeQuery();

@@ -61,8 +61,8 @@ public class Employertraitement{
 
 
 
-//            st.close();
-//            cn.close();
+            st.close();
+            cn.close();
         }catch(Exception e){
             
         }

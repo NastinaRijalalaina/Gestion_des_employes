@@ -4,12 +4,17 @@
  */
 package interfaces;
 
+import DatabaseConnection.ConnectionSqlite;
 import controleur.AjoutEmployer;
 import controleur.tableEmployer.TableActionCellEditor;
 import controleur.tableEmployer.TableActionCellRender;
 import controleur.tableEmployer.TableActionEvent;
+import java.beans.Statement;
+import java.sql.Connection;
+import java.sql.*;
 import javax.swing.table.DefaultTableModel;
 import traitement.employer.AffichageEmployer;
+import traitement.employer.DeleteEmployer;
 import traitement.employer.EmployerNum;
 import traitement.employer.Employertraitement;
 
@@ -26,23 +31,39 @@ public class Employer extends javax.swing.JPanel
     public Employer()
       {
         initComponents();
+        
         AffichageEmployer afficher = new AffichageEmployer();
         afficher.affichage(tableemployer);
-         setOpaque(false);
+        setOpaque(false);
+        
         TableActionEvent event = new TableActionEvent(){
             
+                
             @Override
             public void onEdit(int row){
-                System.out.println("Edit row:" +row);
+                System.out.println("Edit row rija:" +row);
+
+                
             }
              @Override
             public void onDelete(int row){
                 System.out.println("Delete row:" +row);
-                if(tableemployer.isEditing()){
-                    tableemployer.getCellEditor().stopCellEditing();
-                }
-                DefaultTableModel model = (DefaultTableModel)tableemployer.getModel();
-                model.removeRow(row);
+                DeleteEmployer delete = new DeleteEmployer();
+                delete.delete(tableemployer, row);
+                DefaultTableModel model = (DefaultTableModel) tableemployer.getModel();
+                model.fireTableDataChanged();
+               // model.removeRow(row);
+                
+                
+                
+                
+                
+                //if(tableemployer.isEditing()){
+                //    tableemployer.getCellEditor().stopCellEditing();
+                //}
+                //DefaultTableModel model = (DefaultTableModel)tableemployer.getModel();
+                
+               // model.removeRow(row);
 
             }
             

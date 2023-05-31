@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JLabel;
 import javax.swing.JTable;
+import java.sql.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
@@ -43,40 +44,33 @@ public class AffichageEmployer {
             
             while(rs.next()){
                 int i = 0;
-                Object row[] = new Object[3];
+                Object [] row = new Object[3];
                 row[0] = rs.getString("numemployer");
                 row[1] = rs.getString("nom");
                 row[2] = rs.getString("adresse");
                 
+                model.addRow(row);
+
+                model.fireTableDataChanged();
+
                 System.out.println(row[0]);
                 System.out.println(row[1]);
-                
-                model.addRow(row);
-                
-//                String numemployer = rs.getString("numemployer");
-//           
-//                String nom = rs.getString("nom");
-//                String adresse = rs.getString("adresse");
-//                
-//                
-//                model.addRow(new Object[]{numemployer, nom, adresse});
-//                tst.teste1.setText("cocou");
-                
-                //
+                                
                 DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
                 centerRenderer.setHorizontalAlignment(JLabel.CENTER);
                 table.setDefaultRenderer(Object.class, centerRenderer);
-            
                 table.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
-               // i++;           
-        
+               
             }
-            
-            table.setModel(model);
+
+             table.setModel(model);
             model.fireTableDataChanged();
-        }catch(Exception e){
+             rs.close();
+             con.close();       
+            
+        }catch(SQLException ex){
         
-            System.out.println("misy ts mety n affichage");
+            System.out.println(ex.getMessage());
         }
 
     

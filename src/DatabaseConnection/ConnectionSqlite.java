@@ -23,7 +23,7 @@ public class ConnectionSqlite {
             
              // Exécuter une requête SELECT et afficher les résultats
              // Établir une connexion à la base de données
-             conn = DriverManager.getConnection("jdbc:sqlite:F:\\rija\\L3_IG 2023\\java\\Gestion_des_employes-main\\Gestion_des_employes-main\\gestionemployer.db");
+             conn = DriverManager.getConnection("jdbc:sqlite:G:\\projetjava\\Gestion_des_employes\\gestionemployer.db");
              System.out.println("tena mety tsara ny connection");
 
               

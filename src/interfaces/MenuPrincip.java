@@ -7,6 +7,7 @@ package interfaces;
 import controleur.EventMenuSelected;
 import java.awt.Color;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,18 +18,20 @@ public class MenuPrincip extends javax.swing.JFrame {
    
     public MenuPrincip() {
         initComponents();
-        setBackground(new Color(0,0,0,0));
+        setForm(new Dashboard());
         menu.initMoving(MenuPrincip.this);
         menu.addEventMenuSelected(new EventMenuSelected(){
             @Override
             public void selected(int index){
-                System.out.println("selected index  : "+ index);
                 if(index == 0){
                     setForm(new Dashboard());
                 }else if(index == 1){
                     setForm(new Employer());
-                }else{
+                }else if(index == 2){
                     setForm(new Entreprise());
+                }
+                else{
+                    setForm(new Travail());
                 }
             }
         });
@@ -44,50 +47,82 @@ public class MenuPrincip extends javax.swing.JFrame {
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
-        panelBorder1 = new interfaces.PanelBorder();
-        menu = new interfaces.Menu();
         MenuPrinPanel = new javax.swing.JPanel();
+        menu = new interfaces.Menu();
+        loginFond2 = new interfaces.LoginFond();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        panelBorder1.setBackground(new java.awt.Color(204, 204, 255));
-
-        MenuPrinPanel.setBackground(new java.awt.Color(255, 255, 255));
-        MenuPrinPanel.setOpaque(false);
+        MenuPrinPanel.setBackground(new java.awt.Color(204, 204, 255));
         MenuPrinPanel.setLayout(new java.awt.BorderLayout());
 
-        javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
-        panelBorder1.setLayout(panelBorder1Layout);
-        panelBorder1Layout.setHorizontalGroup(
-            panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelBorder1Layout.createSequentialGroup()
-                .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 794, Short.MAX_VALUE)
-                .addComponent(MenuPrinPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        menu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+
+        loginFond2.setColor1(new java.awt.Color(51, 51, 255));
+        loginFond2.setColor2(new java.awt.Color(102, 102, 255));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/fermer.png"))); // NOI18N
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                jLabel1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout loginFond2Layout = new javax.swing.GroupLayout(loginFond2);
+        loginFond2.setLayout(loginFond2Layout);
+        loginFond2Layout.setHorizontalGroup(
+            loginFond2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginFond2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addContainerGap())
         );
-        panelBorder1Layout.setVerticalGroup(
-            panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MenuPrinPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(menu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 553, Short.MAX_VALUE)
+        loginFond2Layout.setVerticalGroup(
+            loginFond2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelBorder1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(MenuPrinPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 985, Short.MAX_VALUE))
+            .addComponent(loginFond2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelBorder1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(loginFond2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(MenuPrinPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 778, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, 0))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jLabel1MouseClicked
+    {//GEN-HEADEREND:event_jLabel1MouseClicked
+        String[] options = {"Oui", "Non"};
+      int choice = JOptionPane.showOptionDialog(null, "Voulez-vous vraiment quitter l'application ?", "Confirmation",JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[1]);
+      if (choice == JOptionPane.YES_OPTION) {
+         System.exit(0);
+      }
+    }//GEN-LAST:event_jLabel1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -126,7 +161,8 @@ public class MenuPrincip extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MenuPrinPanel;
+    private javax.swing.JLabel jLabel1;
+    private interfaces.LoginFond loginFond2;
     public interfaces.Menu menu;
-    public interfaces.PanelBorder panelBorder1;
     // End of variables declaration//GEN-END:variables
 }

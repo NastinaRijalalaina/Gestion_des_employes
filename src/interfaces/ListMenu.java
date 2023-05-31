@@ -1,10 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package interfaces;
 
-import controle.*;
+import controleur.*;
 import interfaces.*;
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
@@ -19,6 +15,7 @@ import javax.swing.SwingUtilities;
 /**
  *
  * @author rijaa
+ * @param <E>
  */
 public class ListMenu<E extends Object> extends JList<E> {
     
