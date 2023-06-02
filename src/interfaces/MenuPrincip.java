@@ -5,7 +5,7 @@
 package interfaces;
 
 import controleur.EventMenuSelected;
-import java.awt.Color;
+import java.awt.BorderLayout;
 import java.awt.Component;
 import javax.swing.JOptionPane;
 
@@ -51,6 +51,7 @@ public class MenuPrincip extends javax.swing.JFrame {
     {
 
         MenuPrinPanel = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         menu = new interfaces.Menu();
         loginFond2 = new interfaces.LoginFond();
         jLabel1 = new javax.swing.JLabel();
@@ -60,6 +61,9 @@ public class MenuPrincip extends javax.swing.JFrame {
 
         MenuPrinPanel.setBackground(new java.awt.Color(204, 204, 255));
         MenuPrinPanel.setLayout(new java.awt.BorderLayout());
+
+        jLabel2.setText("jLabel2");
+        MenuPrinPanel.add(jLabel2, java.awt.BorderLayout.CENTER);
 
         menu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
@@ -162,6 +166,7 @@ public class MenuPrincip extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MenuPrinPanel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private interfaces.LoginFond loginFond2;
     public interfaces.Menu menu;
     // End of variables declaration//GEN-END:variables

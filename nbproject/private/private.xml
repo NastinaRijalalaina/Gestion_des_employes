@@ -3,12 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/G:/projetjava/Gestion_des_employes/src/interfaces/Dashboard.java</file>
             <file>file:/G:/projetjava/Gestion_des_employes/src/interfaces/MenuItem.java</file>
+            <file>file:/G:/projetjava/Gestion_des_employes/src/interfaces/Entreprise.java</file>
             <file>file:/G:/projetjava/Gestion_des_employes/src/interfaces/Travail.java</file>
             <file>file:/G:/projetjava/Gestion_des_employes/src/interfaces/MenuPrincip.java</file>
             <file>file:/G:/projetjava/Gestion_des_employes/src/interfaces/Menu.java</file>
-            <file>file:/G:/projetjava/Gestion_des_employes/src/controleur/ListMenu.java</file>
-            <file>file:/G:/projetjava/Gestion_des_employes/src/interfaces/ListMenu.java</file>
         </group>
     </open-files>
 </project-private>
